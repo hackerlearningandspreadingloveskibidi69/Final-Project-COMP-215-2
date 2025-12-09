@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="../CSS/finalweb.css">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    main {
+      padding-top: 100px;
+      text-align: center;
+  }
+
+    main h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: seagreen;
+      text-align: center;
+    }
+
+    form#profileForm {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .checkbox-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      background-color: #f0fdf4;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkbox-group label:hover {
+      background-color: #d1fae5;
+    }
+
+    #profileForm button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: seagreen;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+  @media (max-width: 576px) {
+    main {
+      padding-top: 200px;
+    }
+
+    main h1 {
+      font-size: 1.6rem; /* slightly smaller but still readable */
+      margin-top: 1rem;
+    } 
+
+    form#profileForm {
+      padding: 0.5rem;
+    }
+
+    .form-group input {
+      width: 100%;
+    }
+
+    .checkbox-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .checkbox-group label {
+      width: 100%;
+      max-width: 300px;
+      justify-content: flex-start;
+    }
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="../HTML/finalweb.html">
+        <img src="../img/campusconnect.png" alt="CampusConnect+ logo" width="200" height="200">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="../HTML/events.html">Events</a>
+      <a href="../HTML/favorites.html" class="active">Favorites</a>
+      <a href="../HTML/profile.html">Profile</a>
+      <a href="../HTML/signupage.html" id="signup-link">Sign Up</a>
+      <span id="user-info" style="display:none;">
+        <i class="ri-user-line"></i>
+        <span id="username-display"></span>
+        <div id="logout-popup">
+          <p>Do you want to log out?</p>
+          <a href="#" id="logout-link">Logout</a>
+        </div>
+      </span>
+    </div>
+  </nav>
+
+  <main>
+    <h1>User Profile</h1>
+
+    <form id="profileForm">
+      <div class="form-group">
+        <label for="profileName">Name:</label>
+        <input type="text" id="profileName">
+      </div>
+
+      <div class="form-group">
+        <label for="profileEmail">Email:</label>
+        <input type="email" id="profileEmail">
+      </div>
+
+      <h3>Preferred Categories</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" value="Academic"> Academic</label>
+        <label><input type="checkbox" value="Sports"> Sports</label>
+        <label><input type="checkbox" value="Social"> Social</label>
+        <label><input type="checkbox" value="Arts"> Arts</label>
+        <label><input type="checkbox" value="Tech"> Tech</label>
+      </div>
+
+      <button type="submit">Save Preferences</button>
+      <p id="profileMessage"></p>
+    </form>
+  </main>
+
+
+  <!-- Footer section  -->
+  <footer class="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="../img/school1.png" width="150" height="73" loading="lazy" alt="CampusConnect+ logo">
+          </a>
+
+          <p class="footer-text">
+            Our success in providing entertainment solutions is due in large part to our talented and highly committed team.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://x.com/" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Useful Links</p>
+
+          <ul>
+
+            <li>
+              <a href="../HTML/events.html" class="footer-link">Events</a>
+            </li>
+
+            <li>
+              <a href="../HTML/favorites.html" class="footer-link">Favorites</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms of Use</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact Us</a>
+            </li>
+
+            <li>
+              <a href="../HTML/userFeedbackhere.html" class="footer-link">Feedback</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Contact Us</p>
+
+          <div class="contact-item">
+            <span class="span">Location:</span>
+
+            <address class="contact-link">
+              Neon Nexus Boulevard, Cyber Citadel District, Virtual Vista County, City of Infinite Adventure
+            </address>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Join Us:</span>
+
+            <a href="mailto:CampusConnect@CampusCo.ca" class="contact-link">CampusConnect@CampusCo.ca</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Phone:</span>
+
+            <a href="tel:+17981653420" class="contact-link">(+1) 798-165-3420</a>
+          </div>
+
+        </div>
+
+        <div class="footer-list">
+          <p class="title footer-list-title has-after">Newsletter Signup</p>
+          <form id="newsletter-form" class="footer-form">
+            <input type="text" id="newsletter-email" class="input-field" placeholder="Your Email">
+            <button type="submit" id="subscribe-btn" class="btn">Subscribe Now</button>
+            <p id="error-message" style="display:none; color: yellow; margin-top: 0.5rem;">
+              Please enter a valid email address.
+            </p>
+            <p id="success-message" style="display:none; color: purple; margin-top: 1rem;">
+              Registered successfully!
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2026 CampusConnect+ | All Rights Reserved.
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <div class="cursor" data-cursor></div>
+
+  <!-- Custom icon libraries -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/events.js"></script>
+  <script src="../js/favorites.js"></script>
+  <script src="../js/userauth.js"></script>
+  <script src="../js/favorites-common.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/newsletter.js"></script>
+
+  <script>
+    $(function() {
+      $.getJSON("../Data/eventsdemo.json")
+        .done(function(data) {
+          const preview = data.slice(0, 2);
+          preview.forEach(event => {
+            $("#events-preview").append(`
+              <div class="event-card">
+                <img src="${event.image || 'default.jpg'}" alt="${event.title}">
+                <h3>${event.title}</h3>
+                <p>${event.date} @ ${event.location}</p>
+                <a href="../HTML/events.html">See more</a>
+              </div>
+            `);
+          });
+        })
+        .fail(function() {
+          $("#events-preview").html("<p>Could not load events.</p>");
+        });
+    });
+
+  $(document).ready(function() {
+    $("#profileForm").submit(function(e) {
+      e.preventDefault();
+
+      const categories = $("input[type=checkbox]:checked")
+        .map(function() { return $(this).val(); })
+        .get();
+
+      localStorage.setItem("profileCategories", JSON.stringify(categories));
+
+      const msg = $("#profileMessage");
+      msg.text("Preferences saved successfully!").css({
+        "color": "green",
+        "opacity": "1",
+        "margin-top": "1rem",
+        "transition": "opacity 0.5s ease"
+      });
+
+      // Hide after 5 seconds
+      setTimeout(() => {
+        msg.css("opacity", "0");
+        setTimeout(() => {
+          msg.text(""); // clear text after fade
+        }, 500); // wait for fade transition
+      }, 5000);
+    });
+  });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusConnect+ Events</title>
+  <!-- Reuse the main CSS -->
+  <link rel="stylesheet" href="../CSS/finalweb.css">
+  <link rel="stylesheet" href="../CSS/events.css">
+</head>
+<body>
+  <!-- We reused navigation bar from finalweb.html to maintain consistency and design -->
+  <nav>
+    <div class="logo">
+      <a href="../HTML/finalweb.html">
+        <img src="../img/campusconnect.png" alt="CampusConnect+ logo" width="200" height="200">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="../HTML/events.html">Events</a>
+      <a href="../HTML/favorites.html" class="active">My Favorites</a>
+      <a href="../HTML/profile.html">Profile</a>
+      <a href="../HTML/signupage.html" id="signup-link">Sign Up</a>
+      <span id="user-info" style="display:none;">
+        <i class="ri-user-line"></i>
+        <span id="username-display"></span>
+        <div id="logout-popup">
+          <p>Do you want to log out?</p>
+          <a href="#" id="logout-link">Logout</a>
+        </div>
+      </span>
+    </div>
+  </nav>
+
+  <!-- Hero section with search and filters -->
+	<div class="hero">
+	  <div class="hero-content">
+		<h1>Campus Events</h1>
+		<p>Stay updated on everything happening around campus!</p>
+
+		<div class="search-wrapper">
+      <div class="search-inner">
+        <input id="search" type="text" />
+        <button id="searchBtn">Search</button>
+      </div>
+      <ul id="suggestions"></ul>
+    </div>
+
+    <!-- Filters + Sorting below, so the user can view whichever events they're interested in -->
+		<div class="filter-row">
+		  <div class="category-filters">
+			<button class="chip" data-category="Academic">Academic</button>
+			<button class="chip" data-category="Sports">Sports</button>
+			<button class="chip" data-category="Social">Social</button>
+			<button class="chip" data-category="Arts">Arts</button>
+			<button class="chip" data-category="Tech">Tech</button>
+		  </div>
+		  <select id="sort">
+			<option value="dateAsc">Sort by Date ↑</option>
+			<option value="dateDesc">Sort by Date ↓</option>
+		  </select>
+		</div>
+	  </div>
+	</div>
+
+  <!-- Events container, where our events happen -->
+  <main>
+    <div id="events" class="events-grid">
+      <!-- Event cards will be injected dynamically by events.js -->
+    </div>
+  </main>
+
+  <!-- Modal for event details -->
+  <div id="eventModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDate"></p>
+      <p id="modalLocation"></p>
+      <p id="modalDescription"></p>
+      <button id="addFavoriteBtn" class="button">Add to Favorites</button>
+    </div>
+  </div>
+
+  <!-- Footer section  -->
+  <footer class="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="../img/school1.png" width="150" height="73" loading="lazy" alt="CampusConnect+ logo">
+          </a>
+
+          <p class="footer-text">
+            Our success in providing entertainment solutions is due in large part to our talented and highly committed team.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://x.com/" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Useful Links</p>
+
+          <ul>
+
+            <li>
+              <a href="../HTML/events.html" class="footer-link">Events</a>
+            </li>
+
+            <li>
+              <a href="../HTML/favorites.html" class="footer-link">Favorites</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms of Use</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact Us</a>
+            </li>
+
+            <li>
+              <a href="../HTML/userFeedbackhere.html" class="footer-link">Feedback</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Contact Us</p>
+
+          <div class="contact-item">
+            <span class="span">Location:</span>
+
+            <address class="contact-link">
+              Neon Nexus Boulevard, Cyber Citadel District, Virtual Vista County, City of Infinite Adventure
+            </address>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Join Us:</span>
+
+            <a href="mailto:CampusConnect@CampusCo.ca" class="contact-link">CampusConnect@CampusCo.ca</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Phone:</span>
+
+            <a href="tel:+17981653420" class="contact-link">(+1) 798-165-3420</a>
+          </div>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Newsletter Signup</p>
+
+          <form action="./index.html" method="get" class="footer-form">
+            <input type="email" id="newsletter-email" class="input-field" placeholder="Your Email" required>
+            <button id="subscribe-btn" class="btn">Subscribe Now</button>
+            <p id="success-message" style="display:none; color: purple; margin-top: 1rem;">
+              Registered successfully!
+            </p>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2026 CampusConnect+ | All Rights Reserved.
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <div class="cursor" data-cursor></div>
+
+  <!-- ionicon links -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/events.js"></script>
+  <script src="../js/favorites.js"></script>
+  <script src="../js/userauth.js"></script>
+  <script src="../js/favorites-common.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script>
+    $(function() {
+      $.getJSON("../Data/eventsdemo.json")
+        .done(function(data) {
+          const preview = data.slice(0, 2);
+          preview.forEach(event => {
+            $("#events-preview").append(`
+              <div class="event-card">
+                <img src="${event.image || 'default.jpg'}" alt="${event.title}">
+                <h3>${event.title}</h3>
+                <p>${event.date} @ ${event.location}</p>
+                <a href="../HTML/events.html">See more</a>
+              </div>
+            `);
+          });
+        })
+        .fail(function() {
+          $("#events-preview").html("<p>Could not load events.</p>");
+        });
+    });
+  </script>
+</body>
+</html>

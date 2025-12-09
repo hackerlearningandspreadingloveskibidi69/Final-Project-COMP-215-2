@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Campus Hackathon 2025",
+    "category": "Tech",
+    "date": "2025-12-10",
+    "location": "Innovation Lab",
+    "image": "../img/hackathon-cover.webp",
+    "description": "A 24-hour coding challenge with prizes for the most creative solutions.",
+    "tags": ["coding", "teamwork", "innovation"],
+    "link": "https://devpost.com/hackathons"
+  },
+  {
+    "id": 2,
+    "title": "Winter Gala",
+    "category": "Social",
+    "date": "2025-12-15",
+    "location": "Student Center Ballroom",
+    "image": "../img/wintergala.jpg",
+    "description": "Formal dinner and dance to celebrate the semester.",
+    "tags": ["music", "dance", "community"],
+    "link": "https://www.albertaballet.com/the-winter-gala-2025"
+  },
+  {
+    "id": 3,
+    "title": "Basketball Championship",
+    "category": "Sports",
+    "date": "2025-12-20",
+    "location": "Campus Gym",
+    "image": "../img/slamdunk.jpg",
+    "description": "Cheer on the varsity team in the finals!",
+    "tags": ["sports", "team", "competition"],
+    "link": "https://www.nba.com/"
+  },
+  {
+    "id": 4,
+    "title": "Guest Lecture: AI in Business",
+    "category": "Academic",
+    "date": "2026-01-05",
+    "location": "Main Auditorium",
+    "image": "../img/businessautomation.webp",
+    "description": "Industry expert discusses the future of AI in business management.",
+    "tags": ["lecture", "business", "technology"],
+    "link": "https://www.ted.com/topics/artificial+intelligence"
+  },
+  {
+    "id": 5,
+    "title": "Art Exhibition: Student Showcase",
+    "category": "Arts",
+    "date": "2026-01-12",
+    "location": "Fine Arts Gallery",
+    "image": "../img/artexhibition.webp",
+    "description": "Explore paintings, sculptures, and digital art created by students.",
+    "tags": ["art", "gallery", "creative"],
+    "link": "https://www.louvre.fr/en"
+  },
+  {
+    "id": 6,
+    "title": "Career Fair 2026",
+    "category": "Academic",
+    "date": "2026-01-20",
+    "location": "Conference Hall",
+    "image": "../img/careerfair.png",
+    "description": "Meet recruiters from top companies and explore internship opportunities.",
+    "tags": ["career", "jobs", "networking"],
+    "link": "https://saskpolytech.ca/student-services/support/career-fairs/index.aspx"
+  },
+  {
+    "id": 7,
+    "title": "Spring Concert",
+    "category": "Arts",
+    "date": "2026-02-01",
+    "location": "Outdoor Stage",
+    "image": "../img/tomorrowland.webp",
+    "description": "Live performances by campus bands and choirs.",
+    "tags": ["music", "concert", "festival"],
+    "link": "https://www.bandsintown.com/"
+  },
+  {
+    "id": 8,
+    "title": "Coding Bootcamp",
+    "category": "Tech",
+    "date": "2026-02-10",
+    "location": "Computer Lab",
+    "image": "../img/codingcontest.webp",
+    "description": "Hands-on workshop to learn web development basics.",
+    "tags": ["coding", "workshop", "web"],
+    "link": "https://www.codecademy.com/"
+  },
+  {
+    "id": 9,
+    "title": "Soccer Friendly Match",
+    "category": "Sports",
+    "date": "2026-02-15",
+    "location": "Campus Field",
+    "image": "../img/soccerstuff.jpg",
+    "description": "Friendly match between students and faculty.",
+    "tags": ["soccer", "sports", "fun"],
+    "link": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"
+  },
+  {
+    "id": 10,
+    "title": "Debate Competition",
+    "category": "Academic",
+    "date": "2026-02-20",
+    "location": "Lecture Hall B",
+    "image": "../img/usdebate.webp",
+    "description": "Teams compete on current issues in a formal debate format.",
+    "tags": ["debate", "academic", "competition"],
+    "link": "https://www.worlddebating.org/"
+  }
+]

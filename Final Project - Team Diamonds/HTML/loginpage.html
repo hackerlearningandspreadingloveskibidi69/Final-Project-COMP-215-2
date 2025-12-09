@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - CampusConnect+</title>
+  <link rel="stylesheet" href="../CSS/loginpage.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="../HTML/finalweb.html">
+        <img src="../img/campusconnect.png" alt="CampusConnect+ logo" width="200" height="200">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="../HTML/events.html">Events</a>
+      <a href="../HTML/favorites.html">My Favorites</a>
+      <a href="../HTML/loginpage.html" class="active">Login</a>
+      <a href="../HTML/signupage.html">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- Hero / Form -->
+  <div class="hero">
+    <div class="form-container">
+      <img src="../img/groupimg.png" alt="Group illustration">
+      <h1>Login</h1>
+      <!-- ✅ Corrected form ID -->
+      <form id="loginForm">
+        <!-- ✅ Corrected input IDs -->
+        <input type="text" id="login-name" class="input-box" placeholder="Your Name" 
+               required pattern="[A-Za-z ]{2,}" 
+               title="Name must be at least 2 characters and contain only letters.">
+
+        <input type="email" id="login-email" class="input-box" placeholder="Your Email" required>
+        
+        <div class="password-box">
+          <input type="password" id="login-pass" class="input-box" placeholder="Your Password" required>
+          <i class="ri-eye-off-line toggle-eye" onclick="togglePassword('login-pass', this)"></i>
+        </div>
+
+        <p class="tos-text">
+          <input type="checkbox" id="login-remember"> Remember Me
+        </p>
+        <button type="submit" class="button">Login</button>
+        <hr>
+        <p class="or">OR</p>
+        <p>Don’t have an account? <a href="../HTML/signupage.html">Sign up today!</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/userauth.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script>
+    // ✅ Handle form submission with correct IDs
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("login-name").value.trim();
+      const email = document.getElementById("login-email").value.trim();
+      const pass = document.getElementById("login-pass").value;
+      const rememberMe = document.getElementById("login-remember").checked;
+
+      // Call loginUser from userauth.js
+      loginUser(email, pass, rememberMe);
+    });
+
+    // Autofill remembered email
+    window.onload = function() {
+      const rememberedEmail = localStorage.getItem("rememberEmail");
+      if (rememberedEmail) document.getElementById('login-email').value = rememberedEmail;
+    };
+
+    // Toggle password visibility
+    function togglePassword(fieldId, iconElement) {
+      const input = document.getElementById(fieldId);
+      if (input.type === "password") {
+        input.type = "text";
+        iconElement.classList.replace("ri-eye-off-line", "ri-eye-line");
+      } else {
+        input.type = "password";
+        iconElement.classList.replace("ri-eye-line", "ri-eye-off-line");
+      }
+    }
+  </script>
+</body>
+</html>

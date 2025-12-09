@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Global variables: these are used throughout the CSS for consistency */
+:root {
+  /* Colors */
+  --bg-purple: hsla(267, 100%, 63%, 1);
+  --bg-purple-alpha-30: hsla(267, 100%, 63%, 0.3);
+  --bg-oxford-blue-alpha-90: hsla(240, 63%, 13%, 0.9);
+  --bg-oxford-blue-alpha-80: hsla(240, 63%, 13%, 0.8);
+
+  /* Text */
+  --text-white: #fff;
+  --text-purple: rgb(184, 0, 245);
+
+  /* Font sizes */
+  --fontSize-3: 2rem;
+  --fontSize-5: 1.6rem;
+  --fontSize-6: 1.5rem;
+  --fontSize-7: 1.4rem;
+
+  /* Font weight */
+  --weight-semiBold: 600;
+
+  /* Clip paths */
+  --clip-path-3: polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%);
+  --clip-path-8: polygon(0% 0%, 70% 0, 100% 30%, 100% 100%, 0 100%);
+
+  /* Gradient */
+  --gradient-1: linear-gradient(to right bottom,
+    hsl(299, 100%, 52%), hsl(291, 100%, 58%),
+    hsl(283, 100%, 60%), hsl(273, 100%, 62%),
+    hsl(262, 100%, 63%), hsl(242, 100%, 69%),
+    hsl(223, 100%, 62%), hsl(210, 100%, 50%),
+    hsl(203, 100%, 50%), hsl(198, 100%, 50%),
+    hsl(192, 100%, 48%), hsl(185, 90%, 48%)
+  );
+
+  /* Shadow + transitions */
+  --shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  --transition-1: 250ms ease;
+  --transition-2: 500ms ease;
+}
+
+/* reset margins/padding so layout is consistent across browsers */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevents horizontal scroll */
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+	flex: 1;
+}
+
+/* Keep default font for events search bar */
+.events-search input,
+.events-search {
+  font-family: Arial, sans-serif; /* or whatever fallback you prefer */
+}
+
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: seagreen;
+  padding: 0 2rem;
+}
+
+.logo img {
+  height: 200px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: yellow;
+}
+
+
+/* Hero Section */
+/* animated gradient background for a lively hero section */
+/* top padding added so hero isn't hidden behind fixed nav */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  align-items: center;
+  justify-items: center; /* centers items horizontally in grid cells */
+  text-align: left;
+  color: white;
+  background: linear-gradient(-45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 6rem 2rem 2rem; /* top padding accounts for fixed nav */
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-transform: uppercase;
+  color: lightblue;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.left-column, .right-column {
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+    height: auto;          /* let content define height */
+    padding: 0.5rem;       /* smaller padding */
+  }
+
+  .logo img {
+    height: 40px;          /* shrink logo for mobile */
+    width: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.3rem;           /* tighter spacing */
+  }
+
+  .hero {
+    padding-top: 6rem;     /* adjust so hero isn’t hidden */
+  }
+}
+
+button {
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2rem;
+  color: white;
+  background: blue;
+  box-shadow: 0 0 10px rgba(0,0,255,0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(0,0,255,0.9);
+}
+
+/* Shared grid layout for events and favorites */
+/* Events stay grid, favorites use flex for left-to-right flow */
+#events {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+#favorites-container {
+  display: flex;
+  flex-wrap: wrap;   /* allow wrapping to next line */
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start; /* align items left to right */
+}
+
+/* Card styling */
+/* simple card style with hover lift effect */
+.event-card,
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover,
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Image sizing */
+.event-card img,
+.card img {
+  width: 100%;
+  height: 180px;       /* fixed height for consistency */
+  object-fit: cover;   /* crop oversized images neatly */
+  border-radius: 8px 8px 0 0;
+}
+
+/* Content area */
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+/* Footer */
+/* We had to fix some parts so that the footer icons line up and be responsive */
+.footer {
+  background: linear-gradient(-45deg, #643e54, #d6d6de, #4ade80, #facc15);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-top .container {
+  display: grid;
+  gap: 100px;
+}
+
+@media (min-width: 575px) {
+  .footer-top .container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 992px) {
+  .footer-top .container { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .footer-top .container { grid-template-columns: 1f 0.5fr 0.5fr 1fr; }
+}
+
+.footer .logo img {
+  width: 200px;
+}
+
+.footer-text {
+  margin-block: 20px 25px;
+}
+
+.footer .social-link {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-purple-alpha-30);
+  display: grid;
+  place-items: center;
+  clip-path: var(--clip-path-8);
+  transition: var(--transition-1);
+}
+
+.footer .social-link:is(:hover, :focus-visible) {
+  background-color: var(--bg-purple);
+  transform: translateY(-2px);
+}
+
+.footer-list-title {
+  font-size: 1.4rem;   /* smaller than before */
+  font-weight: var(--weight-semiBold, 600);
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+  max-width: max-content;
+  color: var(--text-white);
+}
+
+.footer-list-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-purple);
+  border-radius: 2px;
+}
+
+.footer-link {
+  padding-block: 5px;
+  color: var(--text-white);
+  transition: var(--transition-1);
+}
+
+/* only center the first footer column (logo + social icons) */
+.footer-top .container > :first-child {
+  text-align: center;
+}
+
+.footer-top .container > :first-child .logo img {
+  display: block;
+  margin-inline: auto;
+}
+
+.footer-top .container > :first-child .footer-text {
+  margin-block: 20px 25px;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* '>' means direct child — center only the first footer column */
+.footer-top .container > :first-child .social-list {
+  justify-content: center;
+}
+
+.footer-link:is(:hover, :focus-visible) {
+  color: var(--text-purple);
+}
+
+.contact-item .span {
+  color: var(--text-purple);
+  font-size: var(--fontSize-7);
+  text-transform: uppercase;
+  font-weight: var(--weight-semiBold);
+}
+
+.contact-item:not(:last-child) {
+  margin-block-end: 15px;
+}
+
+.input-field {
+  background-color: var(--bg-oxford-blue-alpha-90, #1e293b);
+  color: var(--text-white, #fff);
+  font-size: 0.9rem;       /* smaller text size */
+  padding: 10px 14px;      /* slightly reduced padding */
+  border-radius: 8px;      /* rounded rectangle */
+  border: 2px solid var(--border-purple-alpha-30, rgba(155,93,229,0.3));
+  margin-bottom: 15px;
+  outline: none;
+  width: 100%;
+  max-width: 260px;        /* slightly smaller width */
+  box-shadow: var(--shadow, 0 2px 5px rgba(0,0,0,0.2));
+}
+
+.input-field::placeholder {
+  font-size: 1rem;      /* smaller placeholder text */
+  color: var(--text-white, #fff);
+  opacity: 0.8;
+}
+
+.btn {
+  color: var(--text-white);
+  font-size: var(--fontSize-6);
+  font-weight: var(--weight-semiBold);
+  height: 50px;
+  padding-inline: 30px;
+  clip-path: var(--clip-path-3);
+  transition: transform var(--transition-2);
+}
+
+.footer-bottom {
+  background: seagreen; /* or your gradient */
+  position: absolute;
+  left: 50%;
+  right: 50%; 
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 2rem;
+  width: 100vw;
+  padding: 1.5rem 0;
+  text-align: center;
+  z-index: 1;
+}
+
+.copyright {
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--text-white);
+}
+
+
+.search-wrapper {
+  z-index: 1;              /* lower than nav */
+  margin-top: 1rem;        /* spacing below hero text */
+}
+
+@media (max-width: 576px) {
+  .search-wrapper {
+    width: 100%;           /* full width on mobile */
+    max-width: 320px;      /* keep it compact */
+  }
+}
+
+#success-message {
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: opacity 0.5s ease; /* smooth fade */
+}
+
+/* Default button style with animated gradient */
+.btn {
+  background: linear-gradient(-45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite; /* reuse hero animation */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* spacing for icon + text */
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+/* Hover state: white background, colored text/icon */
+.btn:hover,
+.btn:focus {
+  background: white;
+  color: seagreen; /* or purple if you prefer */
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Icon inside button */
+.btn ion-icon {
+  font-size: 1.2rem;
+  color: inherit; /* matches text color */
+  transition: color 0.3s ease;
+}
+
+.btn:hover ion-icon {
+  color: seagreen; /* icon flips to green on hover */
+}
+
+/* Default icon color inside social links */
+.footer .social-link ion-icon {
+  font-size: 1.2rem;       /* adjust size if needed */            /* make icons white by default */
+  transition: color 0.3s ease;
+}
+
+/* Hover state: keep icons white */
+.footer .social-link:hover ion-icon,
+.footer .social-link:focus ion-icon {
+  color: white;
+}
+
+.social-list {
+  display: flex;
+  gap: 10px;
+  list-style: none;   /* removes bullets */
+  padding: 0;         /* removes default padding */
+  margin: 0;          /* removes default margin */
+}
+
+.social-list li {
+  list-style: none;   /* ensures no markers on li */
+}
+
+.fav-btn {
+  background: none;
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fav-btn:hover {
+  background: #6c63ff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.fav-btn.saved {
+  background: #6c63ff;
+  color: #fff;
+}
+
+/* User info and storage */
+#user-info {
+  position: relative;
+  display: inline-block; /* keeps popup aligned under username */
+  cursor: pointer;
+  color: cyan;
+  font-weight: bold;
+}
+
+/* popup appears directly below username on hover */
+#logout-popup {
+  display: none;              
+  position: absolute;
+  top: 100%;                   /* directly below username */
+  left: 100%;                     /* aligned to the left edge */
+  transform: translateX(-100%);  /* center horizontally */
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  z-index: 100;
+}
+
+#logout-popup p {
+  font-weight: normal;
+  color: black;
+}
+
+#logout-popup a {
+  color: seagreen;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#logout-popup a:hover {
+  text-decoration: underline;
+}
+
+/* Show popup only when hovering over #user-info */
+#user-info:hover #logout-popup {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #logout-popup {
+    top: auto;
+    bottom: 100%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="../CSS/finalweb.css">
+  <style>
+    main {
+      padding-top: 100px; /* clear fixed nav */
+      text-align: center;
+    }
+
+    main h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: seagreen;
+    }
+
+    #feedbackForm {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #feedbackForm button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: seagreen;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #feedbackMessage {
+      margin-top: 1rem;
+      color: green;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    @media (max-width: 576px) {
+      main {
+        padding-top: 270px;
+      }
+      main h1 {
+        font-size: 1.6rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="../HTML/finalweb.html">
+        <img src="../img/campusconnect.png" alt="CampusConnect+ logo" width="200" height="200">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="../HTML/events.html">Events</a>
+      <a href="../HTML/favorites.html">My Favorites</a>
+      <a href="../HTML/profile.html">Profile</a>
+      <a href="../HTML/feedback.html" class="active">Feedback</a>
+      <a href="../HTML/signupage.html" id="signup-link">Sign Up</a>
+      <span id="user-info" style="display:none;">
+        <i class="ri-user-line"></i>
+        <span id="username-display"></span>
+        <div id="logout-popup">
+          <p>Do you want to log out?</p>
+          <a href="#" id="logout-link">Logout</a>
+        </div>
+      </span>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Feedback</h1>
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="feedbackName">Name:</label>
+        <input type="text" id="feedbackName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="feedbackEmail">Email:</label>
+        <input type="email" id="feedbackEmail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="feedbackText">Message:</label>
+        <textarea id="feedbackText" rows="5" placeholder="Share your thoughts..." required></textarea>
+      </div>
+
+      <button type="submit">Submit Feedback</button>
+      <p id="feedbackMessage"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="../img/school1.png" width="150" height="73" loading="lazy" alt="Unigine logo">
+          </a>
+
+          <p class="footer-text">
+            Our success in providing entertainment solutions is due in large part to our talented and highly committed team.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://x.com/" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Useful Links</p>
+
+          <ul>
+
+            <li>
+              <a href="../HTML/events.html" class="footer-link">Events</a>
+            </li>
+
+            <li>
+              <a href="../HTML/favorites.html" class="footer-link">Favorites</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms of Use</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact Us</a>
+            </li>
+
+            <li>
+              <a href="../HTML/userFeedbackhere.html" class="footer-link">Feedback</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Contact Us</p>
+
+          <div class="contact-item">
+            <span class="span">Location:</span>
+
+            <address class="contact-link">
+              Neon Nexus Boulevard, Cyber Citadel District, Virtual Vista County, City of Infinite Adventure
+            </address>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Join Us:</span>
+
+            <a href="mailto:CampusConnect@CampusCo.ca" class="contact-link">CampusConnect@CampusCo.ca</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">Phone:</span>
+
+            <a href="tel:++17981653420" class="contact-link">(+1) 798-165-3420</a>
+          </div>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Newsletter Signup</p>
+
+          <div class="footer-list">
+            <p class="title footer-list-title has-after">Newsletter Signup</p>
+            <form id="newsletter-form" class="footer-form">
+              <input type="text" id="newsletter-email" class="input-field" placeholder="Your Email">
+              <button type="submit" id="subscribe-btn" class="btn">Subscribe Now</button>
+              <p id="error-message" style="display:none; color: yellow; margin-top: 0.5rem;">
+                Please enter a valid email address.
+              </p>
+              <p id="success-message" style="display:none; color: purple; margin-top: 1rem;">
+                Registered successfully!
+              </p>
+          </form>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2026 CampusConnect+ | All Rights Reserved.
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Custom icon libraries -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- JavaScript magic for user feedback -->
+  <script src="../js/userauth.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#feedbackForm").submit(function(e) {
+        e.preventDefault();
+
+        const name = $("#feedbackName").val().trim();
+        const email = $("#feedbackEmail").val().trim();
+        const message = $("#feedbackText").val().trim();
+
+        if (name && email && message) {
+          // For now, just show confirmation. Later you can send to server.
+          $("#feedbackMessage").text("Thanks for your feedback, " + name + "!").css("opacity","1");
+
+          // Clear inputs
+          $("#feedbackName").val("");
+          $("#feedbackEmail").val("");
+          $("#feedbackText").val("");
+
+          // Hide message after 5 seconds
+          setTimeout(() => {
+            $("#feedbackMessage").css("opacity","0").text("");
+          }, 5000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
